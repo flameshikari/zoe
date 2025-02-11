@@ -1,4 +1,5 @@
 name: Build
+run-name: ${{ inputs.version }}
 
 on:
   workflow_dispatch:
@@ -57,5 +58,4 @@ jobs:
         with:
           name: ${{ inputs.version }}
           tag_name: ${{ inputs.version }}
-          body: ' '
           token: ${{ secrets.TOKEN }}
