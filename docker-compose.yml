@@ -1,0 +1,18 @@
+services:
+  zoe:
+    image: flameshikari/zoe
+    container_name: zoe
+    restart: unless-stopped
+    build: .
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    devices:
+      - /dev/net/tun
+    # network_mode: host
+    ports:
+      - 9993:9993/udp
+      - 9993:9993/tcp
+      - 9994:9994/tcp
+    volumes:
+      - ./data:/var/lib/zerotier-one
